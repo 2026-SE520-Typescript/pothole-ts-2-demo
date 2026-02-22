@@ -1,0 +1,30 @@
+.labeled-counter {
+    background-color: #2a2a2a;
+    color: #bdbdbd;
+    font-family: Arial, Helvetica, sans-serif;
+
+    display: inline-flex;
+    padding: 1rem;
+    align-items: center;
+}
+
+.labeled-counter--active {
+    background-color: #090909;
+}
+
+.label {
+    margin: 0 0.5rem 0 0;
+}
+
+.counter {
+    color: #fff;
+    padding: 0.1rem 0.2rem;
+    background-color: #1bc11b;
+    border-radius: 1rem;
+    min-width: 1.5rem;
+    text-align: center;
+}
+
+.labeled-counter--active .counter {
+    background-color: #da0606;
+}

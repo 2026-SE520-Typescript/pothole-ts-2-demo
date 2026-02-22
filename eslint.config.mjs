@@ -1,3 +1,6 @@
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import storybook from "eslint-plugin-storybook";
+
 import { fixupConfigRules, fixupPluginRules } from "@eslint/compat";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
 import react from "eslint-plugin-react";
@@ -58,4 +61,4 @@ export default [...fixupConfigRules(compat.extends(
         "@typescript-eslint/no-unused-vars": ["warn"],
         "@typescript-eslint/explicit-module-boundary-types": "off",
     },
-}];
+}, ...storybook.configs["flat/recommended"]];
