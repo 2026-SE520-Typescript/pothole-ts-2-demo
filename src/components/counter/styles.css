@@ -1,8 +1,6 @@
 .labeled-counter {
     background-color: #2a2a2a;
     color: #bdbdbd;
-    font-family: Arial, Helvetica, sans-serif;
-
     display: inline-flex;
     padding: 1rem;
     align-items: center;
