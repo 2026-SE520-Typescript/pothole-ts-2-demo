@@ -1,18 +1,18 @@
 import React from 'react';
 import tabsStyles from './tabs.css';
-import {Tab} from './Tab';
 
-type Tab = {
+type TabProperty = {
     id: string;
     label: string;
     content: React.ReactNode;
 }
 
 type TabsProps = {
-    tabs: Tab[];
+    tabs: TabProperty[];
+    renderFunction: (label: string, tabId: string, activeTab: string) => React.ReactNode
 }
 
-export const Tabs: React.FC<TabsProps> = ({tabs}) => {
+export const Tabs: React.FC<TabsProps> = ({tabs, renderFunction}) => {
     const [activeTab, setActiveTab] = React.useState<string>(tabs[0]?.id ?? '');
 
 
@@ -30,11 +30,9 @@ export const Tabs: React.FC<TabsProps> = ({tabs}) => {
                     onClick(tab.id);
                     e.stopPropagation();
                 }} className={tabsStyles.tabButton}>
-                    <Tab title={tab.label} active={activeTab === tab.id} />
+                    {renderFunction(tab.label, tab.id, activeTab)}
                 </button>
             </li>)}
-
-
         </ul>
 
         <section className={tabsStyles.content}>

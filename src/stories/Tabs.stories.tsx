@@ -5,6 +5,7 @@ import type {
 
 import {Tabs} from '../components/tabs/Tabs';
 import React from 'react';
+import {Tab} from '../components/tabs/Tab';
 
 const meta: Meta<typeof Tabs> = {
     component: Tabs,
@@ -27,7 +28,8 @@ const meta: Meta<typeof Tabs> = {
                 label: 'Tab3',
                 content: <div>Hello33333</div>
             }
-        ]
+        ],
+        renderFunction: (label, tabId, activeTab) => <Tab title={label} active={activeTab === tabId} />
     } satisfies Partial<React.ComponentProps<typeof Tabs>>
 };
 
