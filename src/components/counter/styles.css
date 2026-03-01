@@ -4,6 +4,7 @@
     display: inline-flex;
     padding: 1rem;
     align-items: center;
+
 }
 
 .labeled-counter--active {

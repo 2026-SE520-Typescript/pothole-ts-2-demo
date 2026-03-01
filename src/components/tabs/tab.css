@@ -1,0 +1,19 @@
+.tab {
+    border: 1px solid #bababa;
+    border-bottom: none;
+    padding: 0.7rem 1rem;
+    border-radius: 0.4rem 0.4rem 0 0;
+    background-color: #fff;
+    z-index: 1;
+    position: relative;
+    margin-bottom: -1px;
+}
+
+button:hover .tab {
+    background-color: #cfcfcf;
+}
+
+.inactiveTab {
+    border-color: transparent;
+    background-color: transparent;
+}
