@@ -31,7 +31,6 @@ type MapInstance = {
 
 
 const fitMap = (map: MapInstance, points: Point[]) => {
-    //@ts-expect-error Google API
     const bounds = new window.google.maps.LatLngBounds();
 
     points.forEach((point) => bounds.extend({ lat: Number(point.lat), lng: Number(point.lng) }));
