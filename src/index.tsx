@@ -1,32 +1,17 @@
 import React from 'react';
 import ReactDOM, {Container} from 'react-dom/client';
 import {App} from './App';
-import Type from 'typebox';
-import Compile from 'typebox/compile';
-import Value from 'typebox/value';
+import {init} from './services/api/restdb';
+import {BrowserRouter} from 'react-router';
 
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as Container
 );
 
-root.render(<App />);
+init(fetch, 'https://mapstorage-7e78.restdb.io', '66294ad01b8daa76982dfc73');
 
-const schema = Type.Object({
-    a: Type.Number()
-});
+root.render(<BrowserRouter basename={'/'}><App /></BrowserRouter>);
 
-type T = Type.Static<typeof schema>
-
-
-const a = Compile(schema);
-try {
-    const errors = Value.Errors(schema, {a: '1'});
-    console.log(errors);
-    console.log(a.Parse({a: 'some value'}));
-    console.log(a.Check({a: 'some value'}));
-} catch (err) {
-    console.log(err);
-}
-
+// Initialize the API
 

@@ -16,20 +16,21 @@ const meta: Meta<typeof Tabs> = {
             {
                 id: '1',
                 label: 'Tab1',
-                content: <div>Hello11111</div>
+                content: <div>Hello11111</div>,
             },
             {
                 id: '2',
                 label: 'Tab2',
-                content: <div>Hello22222</div>
+                content: <div>Hello22222</div>,
             },
             {
                 id: '3',
                 label: 'Tab3',
-                content: <div>Hello33333</div>
+                content: <div>Hello33333</div>,
             }
         ],
-        renderFunction: (label, tabId, activeTab) => <Tab title={label} active={activeTab === tabId} />
+        renderFunction: (label, tabId, activeTab) => <Tab title={label} active={activeTab === tabId} />,
+        activeTabId: '1'
     } satisfies Partial<React.ComponentProps<typeof Tabs>>
 };
 

@@ -9,15 +9,20 @@ type TabProperty = {
 
 type TabsProps = {
     tabs: TabProperty[];
-    renderFunction: (label: string, tabId: string, activeTab: string) => React.ReactNode
+    renderFunction: (label: string, tabId: string, activeTab: string) => React.ReactNode;
+    activeTabId: string;
+    onTabChange?: (tabId: string) => void;
 }
 
-export const Tabs: React.FC<TabsProps> = ({tabs, renderFunction}) => {
-    const [activeTab, setActiveTab] = React.useState<string>(tabs[0]?.id ?? '');
+export const Tabs: React.FC<TabsProps> = ({tabs, renderFunction, activeTabId, onTabChange}) => {
+    const [activeTab, setActiveTab] = React.useState<string>(activeTabId ?? tabs[0]?.id ?? '');
 
 
     const onClick = (id: string) => {
         setActiveTab(id);
+        if (onTabChange) {
+            onTabChange(id);
+        }
     };
 
     const activeTabElement = tabs.find(tab => tab.id === activeTab);
