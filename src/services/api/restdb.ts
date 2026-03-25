@@ -69,17 +69,6 @@ export const getMapItems = async (page: number = 1, perPage: number = 10): Promi
     return validator.Parse(data);
 };
 
-
-
-// type T = Type.Static<typeof schema>
-//
-//
-// const a = Compile(schema);
-// try {
-//     const errors = Value.Errors(schema, {a: '1'});
-//     console.log(errors);
-//     console.log(a.Parse({a: 'some value'}));
-//     console.log(a.Check({a: 'some value'}));
-// } catch (err) {
-//     console.log(err);
+// export const getDetails = async (id: string): Promise<unknown> {
+//     // https://mapstorage-7e78.restdb.io/rest/mapitem/${id}
 // }
