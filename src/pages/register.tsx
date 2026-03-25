@@ -3,11 +3,11 @@ import {Header} from '../components/header/Header';
 import {Logo} from '../components/logo/Logo';
 import {Counter} from '../components/counter/Counter';
 import {Login} from '../components/login/Login';
-import {Content} from '../components/content/Content';
 
 import {API} from '../api';
 import {useNavigate} from 'react-router';
 import {UserContext} from '../context/userContext';
+import styles from './login.css';
 
 export const Register: React.FC = () => {
     const [login, setLogin] = useState<string>('');
@@ -35,13 +35,21 @@ export const Register: React.FC = () => {
             <Counter counter={10} label='Closed' active={false} />
             <Login isLogged={false} />
         </Header>
-        <Content>
-            <h1>Create a new user</h1>
-            <form onSubmit={onSubmit}>
-                <label>Login<input defaultValue={login} onChange={event => setLogin(event.target.value)} /></label>
-                <label>Password<input defaultValue={pass} type='password' onChange={event => setPass(event.target.value)} /></label>
-                <button type='submit'>Create</button>
-            </form>
-        </Content>
+        <div className={styles.container}>
+            <div className={styles.card}>
+                <h1 className={styles.title}>Create a new user</h1>
+                <form className={styles.form} onSubmit={onSubmit}>
+                    <label className={styles.field}>
+                        Login
+                        <input className={styles.input} defaultValue={login} onChange={event => setLogin(event.target.value)} />
+                    </label>
+                    <label className={styles.field}>
+                        Password
+                        <input className={styles.input} defaultValue={pass} type='password' onChange={event => setPass(event.target.value)} />
+                    </label>
+                    <button className={styles.submit} type='submit'>Create</button>
+                </form>
+            </div>
+        </div>
     </>);
 };
