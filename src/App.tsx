@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import styles from './styles.css';
 import {Route, Routes} from 'react-router';
 import {IndexPage} from './pages';
+import {MapPage} from './pages/map';
+import {ListPage} from './pages/list';
 import {Register} from './pages/register';
 import {LoginPage} from './pages/login';
 import {API} from './api';
@@ -65,24 +67,15 @@ export const App: React.FC = () => {
             ...userObject
         }}>
             <Routes>
-                <Route index element={
-                    <IndexPage />
-                }/>
-                <Route path="/:tab" element={
-                    <Guard><IndexPage /></Guard>
-                }/>
-                <Route path="/:tab/page/:page?" element={
-                    <IndexPage />
-                }/>
-                <Route path="/:tab/page/filer_:filter/:page?" element={
-                    <IndexPage />
-                }/>
-                <Route path="/register" element={
-                    <Register />
-                }/>
-                <Route path="/login" element={
-                    <LoginPage />
-                }/>
+                <Route element={<IndexPage />}>
+                    <Route index element={<MapPage />} />
+                    <Route path="map" element={<Guard><MapPage /></Guard>} />
+                    <Route path="list" element={<Guard><ListPage /></Guard>} />
+                    <Route path="list/page/:page?" element={<ListPage />} />
+                    <Route path="list/page/filer_:filter/:page?" element={<ListPage />} />
+                </Route>
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<LoginPage />} />
             </Routes>
         </UserContext.Provider>
     </div>;
