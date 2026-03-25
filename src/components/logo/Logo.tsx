@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles.css';
+import {Link} from 'react-router';
 
 export const Logo = () => {
-    return <div className={styles.logo}>Pothole</div>;
+    return <Link className={styles.logo} to='/'>Pothole</Link>;
 };
