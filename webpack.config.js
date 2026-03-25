@@ -53,7 +53,8 @@ module.exports = {
             template: './public/index.html'
         }),
         new webpack.DefinePlugin({
-            'process.env.MAP_KEY': JSON.stringify(process.env.MAP_KEY ?? '')
+            'process.env.MAP_KEY': JSON.stringify(process.env.MAP_KEY ?? ''),
+            'process.env.API_KEY': JSON.stringify(process.env.API_KEY ?? '')
         })
     ]
 };

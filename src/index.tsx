@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(
     document.getElementById('root') as Container
 );
 
-init(fetch, 'https://mapstorage-7e78.restdb.io', '66294ad01b8daa76982dfc73');
+init(fetch, 'https://mapstorage-7e78.restdb.io', process.env.API_KEY ?? '');
 
 root.render(<BrowserRouter basename={'/'}><App /></BrowserRouter>);
 
