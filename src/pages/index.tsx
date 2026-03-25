@@ -10,6 +10,7 @@ import {Login} from '../components/login/Login';
 import {Content} from '../components/content/Content';
 import {UserContext} from '../context/userContext';
 import {PotholeList} from '../components/pothole-list/PotholeList';
+import {Map} from '../components/map/Map';
 
 export const IndexPage: React.FC = () => {
     const navigation = useNavigate();
@@ -51,7 +52,7 @@ export const IndexPage: React.FC = () => {
         {
             id: 'map',
             label: 'Map',
-            content: <div>Hello11111</div>,
+            content: loading ? <div>Loading map...</div> : <Map points={mapItems} />,
             activeTab: false,
         },
         {
