@@ -1,8 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {Tabs} from '../components/tabs/Tabs';
-import {Link, useNavigate, useParams} from 'react-router';
+import {useNavigate, useParams} from 'react-router';
 import {getMapItems, MapItemsResponseType} from '../services/api/restdb';
-import {PageItem, Pagination} from '../components/pagination/Pagination';
 import {Tab} from '../components/tabs/Tab';
 import {Header} from '../components/header/Header';
 import {Logo} from '../components/logo/Logo';
@@ -10,6 +9,7 @@ import {Counter} from '../components/counter/Counter';
 import {Login} from '../components/login/Login';
 import {Content} from '../components/content/Content';
 import {UserContext} from '../context/userContext';
+import {PotholeList} from '../components/pothole-list/PotholeList';
 
 export const IndexPage: React.FC = () => {
     const navigation = useNavigate();
@@ -58,18 +58,7 @@ export const IndexPage: React.FC = () => {
             id: 'list',
             label: 'List',
             activeTab: false,
-            content: loading ? <>loading...</> : <div>
-                {mapItems.map(item => {
-                    return (<div key={item._id}>{item.title}</div>);
-                })}
-                <Pagination>
-                    {pages.map(page => {
-                        return (
-                            <Link key={page} to={`/list/page/${page}`}><PageItem isActive={page === currentPage}>{page}</PageItem></Link>
-                        );
-                    })}
-                </Pagination>
-            </div>
+            content: <PotholeList loading={loading} items={mapItems} pages={pages} currentPage={currentPage} />
         }
     ];
 
