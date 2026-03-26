@@ -12,7 +12,8 @@
     "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "cy": "cypress open"
   },
   "author": "",
   "license": "ISC",
@@ -46,6 +47,8 @@
     "@typescript-eslint/parser": "^8.53.1",
     "cross-env": "^10.1.0",
     "css-loader": "^7.1.2",
+    "cypress": "^15.13.0",
+    "cypress-match-screenshot": "^1.1.0",
     "eslint": "^9.39.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
