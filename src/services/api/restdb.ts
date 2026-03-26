@@ -8,7 +8,7 @@ import Value from 'typebox/value';
 
 // CREATE | DELETE | UPDATE | READ
 
-type Fetcher = typeof fetch;
+export type Fetcher = typeof fetch;
 
 let _fetcher: Fetcher;
 let _baseURL: string;

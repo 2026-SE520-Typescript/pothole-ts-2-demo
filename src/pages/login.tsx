@@ -47,7 +47,7 @@ export const LoginPage: React.FC = () => {
                         Password
                         <input className={styles.input} defaultValue={pass} type='password' onChange={event => setPass(event.target.value)} />
                     </label>
-                    <button className={styles.submit} type='submit'>Log In</button>
+                    <button className={styles.submit} type='submit'>Log In!!!</button>
                 </form>
             </div>
         </div>
