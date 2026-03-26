@@ -6,3 +6,7 @@ const ListPage = React.lazy(() => import('./pages/list').then(m => ({default: m.
 + 
 
 `<Suspense fallback={<div>Loading...</div>}></Suspense>`
+
+## Filters
+
+Implement a simple filter
