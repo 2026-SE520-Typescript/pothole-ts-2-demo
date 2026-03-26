@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, {Suspense, useEffect, useState} from 'react';
 import styles from './styles.css';
 import {Route, Routes} from 'react-router';
 import {IndexPage} from './pages';
 import {MapPage} from './pages/map';
-import {ListPage} from './pages/list';
 import {Register} from './pages/register';
 import {LoginPage} from './pages/login';
 import {API} from './api';
@@ -11,6 +10,9 @@ import {appLogger} from './appLogger';
 import {UserContext, UserContextType} from './context/userContext';
 import {Guard} from './pages/guard';
 import {jwtDecode} from 'jwt-decode';
+
+
+const ListPage = React.lazy(() => import('./pages/list').then(m => ({default: m.ListPage})));
 
 export const App: React.FC = () => {
     const [user, setUser] = useState<string | null>(null);
@@ -62,7 +64,7 @@ export const App: React.FC = () => {
     }
 
 
-    return <div className={styles.layout}>
+    return <Suspense fallback={<div>Oops! We did not load the component</div>}><div className={styles.layout}>
         <UserContext.Provider value={{
             ...userObject
         }}>
@@ -70,13 +72,15 @@ export const App: React.FC = () => {
                 <Route element={<IndexPage />}>
                     <Route index element={<MapPage />} />
                     <Route path="map" element={<Guard><MapPage /></Guard>} />
-                    <Route path="list" element={<Guard><ListPage /></Guard>} />
-                    <Route path="list/page/:page?" element={<ListPage />} />
-                    <Route path="list/page/filer_:filter/:page?" element={<ListPage />} />
+                    <Route path="list" element={<Guard>
+                        <ListPage />
+                    </Guard>} />
+                    {/*<Route path="list/page/:page?" element={<ListPage />} />*/}
+                    {/*<Route path="list/page/filer_:filter/:page?" element={<ListPage />} />*/}
                 </Route>
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<LoginPage />} />
             </Routes>
         </UserContext.Provider>
-    </div>;
+    </div></Suspense>;
 };

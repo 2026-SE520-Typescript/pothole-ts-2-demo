@@ -16,6 +16,10 @@ export const PotholeList: React.FC<PotholeListProps> = ({loading, items, pages, 
         return <div className={styles.loading}>Loading...</div>;
     }
 
+    if (items.length === 0) {
+        return <div className={styles.loading}>No data</div>;
+    }
+
     return (
         <div>
             <div className={styles.list}>

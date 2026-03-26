@@ -5,6 +5,7 @@ import {PotholeList} from '../components/pothole-list/PotholeList';
 
 export const ListPage: React.FC = () => {
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | undefined>();
     const params = useParams<{page: string}>();
     const currentPage = Number(params.page ?? 1);
 
@@ -24,6 +25,8 @@ export const ListPage: React.FC = () => {
             setItems(data.data);
             setMapItemPagenation(data.totals);
             setLoading(false);
+        }).catch(error => {
+            setError(error.message);
         });
     }, [currentPage]);
 
@@ -32,6 +35,10 @@ export const ListPage: React.FC = () => {
     const pages = [];
     for (let i = 1; i <= maxPages; i++) {
         pages.push(i);
+    }
+
+    if (error) {
+        return <div>Oops! Something is wrong. {error}</div>;
     }
 
     return <PotholeList loading={loading} items={mapItems} pages={pages} currentPage={currentPage} />;
