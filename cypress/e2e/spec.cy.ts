@@ -28,7 +28,7 @@ describe('Anonymous user', () => {
       cy.get('form input').last().type('some-password');
       cy.get('form button').last().click();
 
-      cy.contains('Log out').should('exist')
+      cy.contains('Log out').should('exist');
       // cy.matchScreenshot('Login form');
     });
   });
