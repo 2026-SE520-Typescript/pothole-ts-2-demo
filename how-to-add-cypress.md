@@ -6,7 +6,7 @@ npm install cypress --save-dev
 ```
 2. Install `cypress-match-screenshot`  ([see](https://github.com/julianburr/cypress-match-screenshot)) 
 ```bash
-npm install --save-dev cypress-image-snapshot @types/cypress-image-snapshot 
+npm install cypress-match-screenshot --save-dev 
 ```
 3. Add `"cy": "cypress open"` to `scripts` section in `package.json`
 ```bash
