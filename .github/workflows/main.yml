@@ -6,7 +6,6 @@ on:
 
 jobs:
   install-dependencies:
-    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
 
     steps:
@@ -36,11 +35,11 @@ jobs:
           key: ${{ runner.os }}-build-dependencies-${{ hashFiles('**/package-lock.json') }}
           path: |
             ./node_modules
-      - run: npm install
       - run: npm run test
 
 
   check-linter:
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     needs: install-dependencies
 
