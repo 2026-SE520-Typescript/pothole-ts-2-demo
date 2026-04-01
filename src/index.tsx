@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(
 
 init(fetch, 'https://mapstorage-7e78.restdb.io', process.env.API_KEY ?? '');
 
-root.render(<BrowserRouter basename={'/'}><App /></BrowserRouter>);
+root.render(<BrowserRouter  basename={process.env.BASE_URL ? process.env.BASE_URL : '/'}><App /></BrowserRouter>);
 
 // Initialize the API
 
