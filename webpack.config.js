@@ -54,7 +54,8 @@ module.exports = {
         }),
         new webpack.DefinePlugin({
             'process.env.MAP_KEY': JSON.stringify(process.env.MAP_KEY ?? ''),
-            'process.env.API_KEY': JSON.stringify(process.env.API_KEY ?? '')
+            'process.env.API_KEY': JSON.stringify(process.env.API_KEY ?? ''),
+            'process.env.MY_PASSWORD': JSON.stringify(process.env.MY_PASSWORD ?? '')
         })
     ]
 };

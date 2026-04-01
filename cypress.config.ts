@@ -1,4 +1,7 @@
 import { defineConfig } from 'cypress';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export default defineConfig({
   allowCypressEnv: false,
@@ -7,5 +10,9 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
+  },
+  allowCypressEnv: true,
+  env: {
+    ...process.env,
   },
 });
